@@ -19,7 +19,7 @@ import org.json.JSONObject;
  */
 public class OAuthLoginActivity extends BaseActivity {
 
-    @InjectView(id = R.id.webview)
+    @InjectView(id = R.id.webView)
     WebView webView;
 
     private JSONObject jsonObject;
@@ -31,6 +31,7 @@ public class OAuthLoginActivity extends BaseActivity {
         WindowManager.LayoutParams p = getWindow().getAttributes();
         p.height = (int) (((MyApplication) getApplication()).DeviceHeight * 0.8);
         p.width = (int) (((MyApplication) getApplication()).DeviceWidth * 0.8);
+
         getWindow().setAttributes(p);
         try {
             initWebView();

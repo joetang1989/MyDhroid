@@ -4,16 +4,16 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.CheckBox;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 
 import net.duohuo.dhroid.activity.BaseActivity;
 import net.duohuo.dhroid.ioc.annotation.InjectView;
 import net.duohuo.dhroid.net.DhNet;
 import net.duohuo.dhroid.net.NetTask;
 import net.duohuo.dhroid.net.Response;
+import net.duohuo.dhroid.util.ViewUtil;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -34,13 +34,13 @@ public class LoginActivity extends BaseActivity {
     @InjectView(id = R.id.btn_register, click = "toActivity")
     View btnRegister;
     @InjectView(id = R.id.remeber_pwd, click = "toActivity")
-    CheckBox remeberPwd;
+    ImageView remeberPwd;
     @InjectView(id = R.id.forget_pwd, click = "toActivity")
     TextView forgetPwd;
 
     private DhNet net;
     private JSONObject configData;
-    private int pwdRemeber = 0;
+    private int pwdRemeber = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -114,17 +114,19 @@ public class LoginActivity extends BaseActivity {
 
                 break;
             case R.id.remeber_pwd:
-                if (remeberPwd.isChecked()) {
+                if (pwdRemeber == 0) {
+                    ViewUtil.bindView(remeberPwd,R.drawable.check_is_icon);
                     pwdRemeber = 1;
 
                 } else {
+                    ViewUtil.bindView(remeberPwd,R.drawable.check_not_icon);
                     pwdRemeber = 0;
                 }
                 break;
             case R.id.btn_register:
 
                 Intent it = new Intent();
-                it.setClass(LoginActivity.this,OAuthLoginActivity.class);
+                it.setClass(LoginActivity.this, OAuthLoginActivity.class);
                 startActivity(it);
                 break;
         }

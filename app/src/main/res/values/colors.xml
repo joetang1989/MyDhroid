@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="base_bg_color">#9DD7DB</color>
+    <color name="border">#FFF</color>
+    <color name="white">#FFF</color>
+    <color name="text_title">#000</color>
+    <color name="black">#000</color>
+    <color name="text_content">#AAA</color>
+    <color name="gray_1">#eee</color>
+    <color name="gray_2">#ddd</color>
+    <color name="gray_4">#ccc</color>
+    <color name="gray_3">#dbdbdb</color>
+    <color name="normal_1">#F6DAE8</color>
+    <color name="normal_2">#199AA7</color>
+    <color name="normal_3">#18A1E5</color>
+    <color name="normal_4">#FFFCDB</color>
+    <color name="normal_5">#03A301</color>
+    <color name="normal_6">#4E9FF0</color>
+
+</resources>

@@ -3,6 +3,8 @@ package com.example.administrator.myapplication;
 import android.app.Application;
 import android.content.SharedPreferences;
 
+import com.example.administrator.myapplication.utils.DeviceUuidFactory;
+
 import net.duohuo.dhroid.Const;
 import net.duohuo.dhroid.Dhroid;
 

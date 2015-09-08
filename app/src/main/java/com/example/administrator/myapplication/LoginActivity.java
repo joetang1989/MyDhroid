@@ -128,6 +128,7 @@ public class LoginActivity extends BaseActivity {
                 Intent it = new Intent();
                 it.setClass(LoginActivity.this, OAuthLoginActivity.class);
                 startActivity(it);
+
                 break;
         }
 

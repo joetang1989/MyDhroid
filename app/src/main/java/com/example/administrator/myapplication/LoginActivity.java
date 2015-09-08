@@ -8,6 +8,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.administrator.myapplication.zxing.activity.CaptureActivity;
+
 import net.duohuo.dhroid.activity.BaseActivity;
 import net.duohuo.dhroid.ioc.annotation.InjectView;
 import net.duohuo.dhroid.net.DhNet;
@@ -50,6 +52,11 @@ public class LoginActivity extends BaseActivity {
         initInput();
     }
 
+    @Override
+    public boolean getNetWorkConnect() {
+        return false;
+    }
+
     private void initInput() {
         SharedPreferences sdf = ((MyApplication) getApplication()).spf;
         accountNo.setText(sdf.getString("name", ""));
@@ -69,9 +76,7 @@ public class LoginActivity extends BaseActivity {
         switch (v.getId()) {
             case R.id.btn_login:
                 if (checkInput()) {
-                    net.setUrl(((MyApplication) getApplication()).host + ((MyApplication)
-                            getApplication()).data.getJSONObject("page_url").getString
-                            ("login"));
+                    net.setUrl(((MyApplication) getApplication()).getUrl("login"));
                     net.addParam("accountno", accountNo.getText()).addParam("accountpwd",
                             accountPwd.getText
                                     ());
@@ -126,7 +131,7 @@ public class LoginActivity extends BaseActivity {
             case R.id.btn_register:
 
                 Intent it = new Intent();
-                it.setClass(LoginActivity.this, OAuthLoginActivity.class);
+                it.setClass(LoginActivity.this, CaptureActivity.class);
                 startActivity(it);
 
                 break;

@@ -1,4 +1,4 @@
-﻿package com.example.administrator.myapplication.utils;
+package com.example.administrator.myapplication.utils;
 
 import android.content.Context;
 import android.view.inputmethod.InputMethodManager;

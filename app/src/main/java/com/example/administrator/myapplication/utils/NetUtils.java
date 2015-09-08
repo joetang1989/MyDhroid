@@ -1,4 +1,4 @@
-﻿package com.example.administrator.myapplication.utils;
+package com.example.administrator.myapplication.utils;
 
 import android.app.Activity;
 import android.content.ComponentName;

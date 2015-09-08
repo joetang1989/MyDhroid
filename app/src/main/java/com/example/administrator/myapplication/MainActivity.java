@@ -49,6 +49,11 @@ public class MainActivity extends BaseActivity {
 
     }
 
+    @Override
+    public boolean getNetWorkConnect() {
+        return false;
+    }
+
     private void initTitleBar() {
         titleBarBack.setVisibility(View.GONE);
         titleBarClose.setVisibility(View.GONE);

@@ -30,12 +30,17 @@ public class MyApplication extends Application {
     public int DeviceWidth,DeviceHeight;
     //UUID(设备ID)
     public java.util.UUID UUID;
+    //VersionCode
+    public int versionCode;
+    //versionName
+    public String versionName;
+
+
 
 
     public String getAccountNo() {
         return accountNo;
     }
-
     public void setAccountNo(String accountNo) {
         this.accountNo = accountNo;
     }
@@ -86,7 +91,7 @@ public class MyApplication extends Application {
         return res;
     }
 
-    //
+    //读取本地JSON
     public JSONObject fileReadJson(String fileName) {
         JSONObject obj = null;
         try {
@@ -95,6 +100,12 @@ public class MyApplication extends Application {
             e.printStackTrace();
         }
         return obj;
+    }
+
+    //拼合URL地址
+
+    public String getUrl(String page) throws JSONException {
+        return host+data.getJSONObject("page_url").getString(page);
     }
 
 

@@ -17,7 +17,7 @@ public class DeviceUuidFactory {
     protected static final String PREFS_FILE = "device_id.xml";
     protected static final String PREFS_DEVICE_ID = "device_id";
 
-    protected static UUID uuid;
+    public static UUID uuid;
 
 
     public DeviceUuidFactory(Context context) {

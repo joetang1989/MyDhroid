@@ -1,4 +1,4 @@
-﻿package com.example.administrator.myapplication.utils;
+package com.example.administrator.myapplication.utils;
 
 import android.content.Context;
 import android.content.pm.PackageInfo;
@@ -13,15 +13,18 @@ import android.content.pm.PackageManager.NameNotFoundException;
  **/
 public class AppUtils {
 
-    private AppUtils() {
-        /* cannot be instantiated */
-        throw new UnsupportedOperationException("cannot be instantiated");
 
-    }
+    private AppUtils()
+        {
+		/* cannot be instantiated */
+            throw new UnsupportedOperationException("cannot be instantiated");
 
-    /**
-     * 获取应用程序名称
-     */
+        }
+
+        /**
+         * 获取应用程序名称
+         */
+
     public static String getAppName(Context context) {
         try {
             PackageManager packageManager = context.getPackageManager();
@@ -54,4 +57,13 @@ public class AppUtils {
         return null;
     }
 
+    public static int getVersionCode(Context context) {
+        try {
+            PackageInfo pi = context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
+            return pi.versionCode;
+        } catch (NameNotFoundException e) {
+            e.printStackTrace();
+            return 0;
+        }
+    }
 }

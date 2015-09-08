@@ -1,4 +1,4 @@
-﻿package com.example.administrator.myapplication.utils;
+package com.example.administrator.myapplication.utils;
 
 import android.os.Environment;
 import android.os.StatFs;

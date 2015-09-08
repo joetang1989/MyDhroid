@@ -11,6 +11,7 @@ import javax.crypto.spec.SecretKeySpec;
  * Author:JsonLu
  * DateTime:2015/9/8 09:57
  * Email:luxd@i_link.cc
+ * Desc:APP加密和解密，iv和SecretKey需要和服务端保持一致
  * String encrypted = MCrypt.bytesToHex( mcrypt.encrypt("需加密的字符") );
  * String decrypted = new String( mcrypt.decrypt( encrypted ) );
  */

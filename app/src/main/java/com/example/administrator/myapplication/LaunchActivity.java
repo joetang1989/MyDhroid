@@ -38,7 +38,7 @@ public class LaunchActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_launch);
         ViewUtil.bindView(firstPic, R.drawable.firstpic);
-        if(!getNetWorkConnect()) {
+        if (!getNetWorkConnect()) {
             T.showLong(this, "net");
         }
         try {
@@ -51,15 +51,15 @@ public class LaunchActivity extends BaseActivity {
 
     @Override
     public boolean getNetWorkConnect() {
-        if(NetUtils.isConnected(this)){
-            return  true;
+        if (NetUtils.isConnected(this)) {
+            return true;
         }
         return false;
     }
 
     public void init() throws JSONException {
         final int versionCode = AppUtils.getVersionCode(this);
-        String update_url = (((MyApplication) getApplication()).getUrl("update"));
+        String update_url = ((MyApplication) getApplication()).getUrl("update");
         DhNet net = new DhNet(update_url);
         net.doGet(new NetTask(this) {
 

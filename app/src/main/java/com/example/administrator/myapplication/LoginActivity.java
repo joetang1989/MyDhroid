@@ -8,7 +8,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.administrator.myapplication.zxing.activity.CaptureActivity;
+import com.example.administrator.myapplication.qr_codescan.MipcaActivityCapture;
 
 import net.duohuo.dhroid.activity.BaseActivity;
 import net.duohuo.dhroid.ioc.annotation.InjectView;
@@ -131,7 +131,7 @@ public class LoginActivity extends BaseActivity {
             case R.id.btn_register:
 
                 Intent it = new Intent();
-                it.setClass(LoginActivity.this, CaptureActivity.class);
+                it.setClass(LoginActivity.this, MipcaActivityCapture.class);
                 startActivity(it);
 
                 break;

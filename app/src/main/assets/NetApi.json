@@ -1,17 +1,21 @@
 {
-  "host_test":"http://192.168.8.116/ilink/",
-  "host_normal":"http://www.example.com",
-  "oauth":{
-    "sae":"https://api.weibo.com/oauth2/authorize?client_id=2354958370&redirect_uri=http%3A%2F%2Fwww.sinacloud.com%2Fsso%2Fweibo_callback.html%3Fsccb%3Dhttp%253A%252F%252Fsae.sina.com.cn%252F%253Fm%253Duser%2526a%253Dreg_check_login&response_type=code&forcelogin=true",
-    "tae":"http://",
-    "bae":"http://"
+  "state": 1,
+  "host_test": "http://192.168.8.116/ilink/",
+  "host_normal": "http://jsonlu.sinaapp.com/",
+  "oauth": {
+    "sae": "https://api.weibo.com/oauth2/authorize?client_id=2354958370&redirect_uri=http%3A%2F%2Fwww.sinacloud.com%2Fsso%2Fweibo_callback.html%3Fsccb%3Dhttp%253A%252F%252Fsae.sina.com.cn%252F%253Fm%253Duser%2526a%253Dreg_check_login&response_type=code&forcelogin=true",
+    "tae": "http://",
+    "bae": "http://"
   },
-  "page_url":{
-    "update":"update.php",
-    "first_pic_url":"pic_url.php",
-    "index":"",
-    "login":"login.php",
-    "index_pic":"pic_url.php"
+  "services": {
+    "isbn_url": "https://api.douban.com/v2/book/isbn/"
   },
-  "data":{}
+  "page_url": {
+    "update": "update.php",
+    "first_pic_url": "pic_url.php",
+    "index": "",
+    "login": "login.php",
+    "index_pic": "pic_url.php"
+  },
+  "data": {}
 }

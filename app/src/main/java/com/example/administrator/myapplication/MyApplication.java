@@ -27,7 +27,7 @@ public class MyApplication extends Application {
     private String accountNo;
     public SharedPreferences spf;
     //设备宽高
-    public int DeviceWidth,DeviceHeight;
+    public int DeviceWidth, DeviceHeight;
     //UUID(设备ID)
     public java.util.UUID UUID;
     //VersionCode
@@ -36,11 +36,10 @@ public class MyApplication extends Application {
     public String versionName;
 
 
-
-
     public String getAccountNo() {
         return accountNo;
     }
+
     public void setAccountNo(String accountNo) {
         this.accountNo = accountNo;
     }
@@ -51,7 +50,12 @@ public class MyApplication extends Application {
         dhroidint();
         data = fileReadJson("NetApi.json");
         try {
-            host = data.getString("host_test");
+            if (data.getInt("state") == 0) {
+                host = data.getString("host_test");
+            }else{
+                host = data.getString("host_normal");
+            }
+
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -105,7 +109,7 @@ public class MyApplication extends Application {
     //拼合URL地址
 
     public String getUrl(String page) throws JSONException {
-        return host+data.getJSONObject("page_url").getString(page);
+        return host + data.getJSONObject("page_url").getString(page);
     }
 
 

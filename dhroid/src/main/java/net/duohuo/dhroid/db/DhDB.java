@@ -1,5 +1,14 @@
 package net.duohuo.dhroid.db;
 
+import android.content.Context;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
+
+import net.duohuo.dhroid.ioc.IocContainer;
+import net.duohuo.dhroid.util.BeanUtil;
+
 import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Field;
@@ -9,14 +18,6 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-
-import net.duohuo.dhroid.ioc.IocContainer;
-import net.duohuo.dhroid.util.BeanUtil;
-import android.content.Context;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
-import android.util.Log;
 
 /**
  * 数据库助手类 android的数据库实现了单表的增删改查就够了
@@ -113,7 +114,7 @@ public class DhDB {
 	/**
 	 * 批量删除
 	 * 
-	 * @param obj
+	 * @param
 	 */
 	public void delete(Class clazz, String where, Object... args) {
 		checkOrCreateTable(clazz);
@@ -124,7 +125,7 @@ public class DhDB {
 	/**
 	 * 清空
 	 * 
-	 * @param obj
+	 * @param
 	 */
 	public void deleteAll(Class clazz) {
 		checkOrCreateTable(clazz);
@@ -163,7 +164,7 @@ public class DhDB {
 	/**
 	 * 查询
 	 * 
-	 * @param proxy
+	 * @param
 	 * @return
 	 */
 	public <T> T queryFrist(Class<T> clazz, String where, Object... whereargs) {
@@ -226,8 +227,8 @@ public class DhDB {
 	 * 通过sql查询
 	 * 
 	 * @param clazz
-	 * @param sql
-	 * @param args
+	 * @param
+	 * @param
 	 * @return
 	 */
 	public <T> List<T> queryList(Class<T> clazz, String where,

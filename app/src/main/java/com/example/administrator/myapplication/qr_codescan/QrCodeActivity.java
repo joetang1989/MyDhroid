@@ -45,17 +45,13 @@ public class QrCodeActivity extends BaseActivity {
             @Override
             public void doInUI(Response response, Integer transfer) throws JSONException {
                 JSONObject jsonObject = response.jSON();
-                T.showLong(QrCodeActivity.this, jsonObject+"");
+                //T.showLong(QrCodeActivity.this, jsonObject+"");
             }
         });
 
 
     }
 
-    @Override
-    public boolean getNetWorkConnect() {
-        return false;
-    }
 
 
 }

@@ -24,4 +24,5 @@ dependencies {
     compile files('libs/zxing.jar')
     compile project(':dhroid')
     compile project(':adRotatorComponent')
+    compile files('libs/com.umeng.message.lib.jar')
 }

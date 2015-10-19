@@ -128,8 +128,4 @@ public class Beam extends BaseActivity {
         }
     }
 
-    @Override
-    public boolean getNetWorkConnect() {
-        return false;
-    }
 }

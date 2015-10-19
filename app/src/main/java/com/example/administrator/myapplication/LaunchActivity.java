@@ -6,8 +6,6 @@ import android.widget.ImageView;
 
 import com.example.administrator.myapplication.utils.AppUtils;
 import com.example.administrator.myapplication.utils.L;
-import com.example.administrator.myapplication.utils.NetUtils;
-import com.example.administrator.myapplication.utils.T;
 
 import net.duohuo.dhroid.activity.BaseActivity;
 import net.duohuo.dhroid.ioc.annotation.InjectView;
@@ -38,23 +36,13 @@ public class LaunchActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_launch);
         ViewUtil.bindView(firstPic, R.drawable.firstpic);
-        if (!getNetWorkConnect()) {
-            T.showLong(this, "net");
-        }
         try {
             init();
         } catch (JSONException e) {
             e.printStackTrace();
         }
 
-    }
 
-    @Override
-    public boolean getNetWorkConnect() {
-        if (NetUtils.isConnected(this)) {
-            return true;
-        }
-        return false;
     }
 
     public void init() throws JSONException {

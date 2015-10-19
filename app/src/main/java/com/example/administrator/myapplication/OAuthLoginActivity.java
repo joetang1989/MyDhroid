@@ -40,12 +40,7 @@ public class OAuthLoginActivity extends BaseActivity {
         }
 
     }
-
-    @Override
-    public boolean getNetWorkConnect() {
-        return false;
-    }
-
+    
     private void initWebView() throws JSONException {
         jsonObject = ((MyApplication) getApplication()).data.getJSONObject("oauth");
         webView.getSettings().setJavaScriptEnabled(true);

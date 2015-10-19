@@ -8,7 +8,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.administrator.myapplication.qr_codescan.MipcaActivityCapture;
+import com.example.administrator.myapplication.utils.L;
+import com.umeng.message.PushAgent;
+import com.umeng.message.UmengRegistrar;
 
 import net.duohuo.dhroid.activity.BaseActivity;
 import net.duohuo.dhroid.ioc.annotation.InjectView;
@@ -41,20 +43,13 @@ public class LoginActivity extends BaseActivity {
     TextView forgetPwd;
 
     private DhNet net;
-    private JSONObject configData;
     private int pwdRemeber = 1;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        configData = ((MyApplication) getApplication()).data;
         initInput();
-    }
 
-    @Override
-    public boolean getNetWorkConnect() {
-        return false;
     }
 
     private void initInput() {
@@ -65,7 +60,7 @@ public class LoginActivity extends BaseActivity {
 
 
     private boolean checkInput() {
-        if (accountNo.getText().length() < 3 || accountPwd.getText().length() < 6) {
+        if (accountNo.getText().length() < 3 || accountPwd.getText().length() < 3) {
             return false;
         }
         return true;
@@ -116,28 +111,38 @@ public class LoginActivity extends BaseActivity {
                 break;
 
             case R.id.forget_pwd:
-
+                Intent it = new Intent();
+                it.setClass(this,CreateQrCode.class);
+                startActivity(it);
                 break;
             case R.id.remeber_pwd:
                 if (pwdRemeber == 0) {
-                    ViewUtil.bindView(remeberPwd,R.drawable.check_is_icon);
+                    ViewUtil.bindView(remeberPwd, R.drawable.check_is_icon);
                     pwdRemeber = 1;
 
                 } else {
-                    ViewUtil.bindView(remeberPwd,R.drawable.check_not_icon);
+                    ViewUtil.bindView(remeberPwd, R.drawable.check_not_icon);
                     pwdRemeber = 0;
                 }
                 break;
             case R.id.btn_register:
-
-                Intent it = new Intent();
-                it.setClass(LoginActivity.this, MipcaActivityCapture.class);
-                startActivity(it);
+                PushAgent mPushAgent = PushAgent.getInstance(this);
+                if (mPushAgent.isEnabled()){
+                    mPushAgent.disable();
+                }else {
+                    mPushAgent.enable();
+                }
+                String info = String.format("enabled:%s  isRegistered:%s  DeviceToken:%s",
+                        mPushAgent.isEnabled(), mPushAgent.isRegistered(),
+                        UmengRegistrar.getRegistrationId(this));
+                L.i("switch Push:" + info);
+                L.d(mPushAgent.isEnabled() + "");
 
                 break;
         }
 
 
     }
+
 
 }
